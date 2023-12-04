@@ -13,6 +13,21 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors : {
+        'background-color' : '#333436',
+      },
+      keyframes : {
+        dropdown : {
+          '0%' : { opacity : 0},
+          '100%' : {opacity : 1}
+        }
+      },
+      animation : {
+        dropdown : 'dropdown .5s ease-in-out'
+      },
+      width : {
+        'logoSize' : '240px'
+      }
     },
   },
   plugins: [],
