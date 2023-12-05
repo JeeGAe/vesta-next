@@ -15,6 +15,8 @@ const config: Config = {
       },
       colors : {
         'background-color' : '#333436',
+        'dropmenu-color' : 'rgba(51, 52, 54, .7)',
+        'primary-color' : '#baa178',
       },
       keyframes : {
         dropdown : {
@@ -27,7 +29,10 @@ const config: Config = {
       },
       width : {
         'logoSize' : '240px'
-      }
+      },
+      top : {
+        'nav-height' : '94px',
+      },
     },
   },
   plugins: [],

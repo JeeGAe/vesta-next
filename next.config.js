@@ -8,6 +8,12 @@ const nextConfig = {
         port: '',
         pathname: '/common/img/*',
       },
+      {
+        protocol: 'http',
+        hostname: 'www.vestabuffet.com',
+        port: '',
+        pathname: '/main/*',
+      },
     ],
   },
 }

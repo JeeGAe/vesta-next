@@ -6,7 +6,6 @@ import Dropmenu from './Dropmenu';
 export default function Header () {
   const [openDropmeun, setOpenDropmenu] = useState(false);
 
-  console.log(openDropmeun)
 
   return (
     <>
@@ -19,25 +18,25 @@ export default function Header () {
           />
         </div>
         <ul className="main-nav-menu-container flex text-center cursor-pointer bg-background-color text-gray-400">
-          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center">
+          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
             <a href="" className="nav-introduce w-full">INTRODUCE</a>
           </li>
-          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center">
+          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
             <a href="" className="nav-facilty w-full">FACILTY</a>
           </li>
-          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center">
+          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
             <a href="" className="nav-foodmenu w-full">MENU</a>
           </li>
-          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center">
+          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
             <a href="" className="nav-banquet w-full">BANQUET</a>
           </li>
-          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center">
+          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
             <a href="" className="nav-event w-full">EVENT</a>
           </li>
-          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center">
+          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
             <a href="" className="nav-customer w-full">CUSTOMER</a>
           </li>
-          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center book-check">
+          <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black book-check">
             <a href="" className="nav-book w-full">예약 및 조회</a>
           </li>
           <li className="mini-dropbox">
