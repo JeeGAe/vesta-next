@@ -1,11 +1,11 @@
 'use client'
 
 const imgs = [
-  { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1691390852_11691390852.jpg" },
+  { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1699341000_11699341000.jpg?1701762841181" },
   { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1666232508_11666232508.jpg" },
   { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1652172608_11652172608.jpg" },
   { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1639207245_11639207245.jpg" },
-  { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1574660746_11574660746.jpg" },
+  { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1699064046_11699064046.jpg" },
 ]
 
 export default function EventCarousel () {

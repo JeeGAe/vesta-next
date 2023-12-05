@@ -11,7 +11,7 @@ const imgs = [
 
 export default function MainCarousel () {
   const [carouselIndex, setCarouselIndex] = useState(1);
-  const showingCarouselIndex = useRef<null | HTMLDivElement>(null);
+  const mainCarouselRef = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
     const timeId = setTimeout(() => {
@@ -21,12 +21,15 @@ export default function MainCarousel () {
         setCarouselIndex(1);
       }
     }, 3000);
-    if(showingCarouselIndex.current !== null){
-      showingCarouselIndex.current.scrollIntoView({ behavior : 'smooth' });
+    if(mainCarouselRef.current !== null){
+      const mainCarouselWidth = mainCarouselRef.current.getBoundingClientRect().width;
+      console.log(mainCarouselWidth)
+      mainCarouselRef.current.scrollTo({ top : 0, left : mainCarouselWidth * (carouselIndex - 1), behavior : 'smooth' });
     }
     const corouselResizeHandler = () => {
-      if(showingCarouselIndex.current !== null){
-        showingCarouselIndex.current.scrollIntoView();
+      if(mainCarouselRef.current !== null){
+        const mainCarouselWidth = mainCarouselRef.current.getBoundingClientRect().width;
+        mainCarouselRef.current.scrollTo({ top : 0, left : mainCarouselWidth * (carouselIndex - 1), behavior : 'smooth' });
       }
     }
     // 브라우저 크기 변경 시 캐러셀 위치 조정
@@ -42,9 +45,9 @@ export default function MainCarousel () {
   return (
     <section>
       {/* 캐러셀 영역 */}
-      <article className="main-carousel-container w-full flex overflow-hidden">
+      <article className="main-carousel-container w-full flex overflow-hidden" ref={mainCarouselRef}>
         {imgs.map((img, index) => (
-           <div key={img.src} className="img-container w-full shrink-0" ref={index + 1 === carouselIndex ? showingCarouselIndex : null}>
+           <div key={img.src} className="img-container w-full shrink-0" >
             <img className="w-full" src={img.src} alt=""/>
            </div>
         ))}
