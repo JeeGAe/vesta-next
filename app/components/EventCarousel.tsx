@@ -15,7 +15,6 @@ export default function EventCarousel () {
   const imgsLength = imgs?.length;
 
   useEffect(() => {
-    console.log(carouselIndex)
     const timeId = setTimeout(() => {
       if(carouselIndex < imgsLength){
         setCarouselIndex(prev => prev + 1);

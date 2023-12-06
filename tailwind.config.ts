@@ -17,18 +17,27 @@ const config: Config = {
         'background-color' : '#333436',
         'dropmenu-color' : 'rgba(51, 52, 54, .7)',
         'primary-color' : '#baa178',
+        'secondary-color' : '#ba3734',
       },
       keyframes : {
         dropdown : {
           '0%' : { opacity : 0},
           '100%' : {opacity : 1}
+        },
+        scrollEventRight : {
+          '0%' : { opacity : 0, transform : 'translateY(-10rem)'},
+          '100%' : { opacity : 1, transform : 'translateY(0rem)'},
         }
       },
       animation : {
-        dropdown : 'dropdown .5s ease-in-out'
+        dropdown : 'dropdown .5s ease-in-out',
+        scrollEventRight : 'scrollEventRight 1s ease-in-out'
       },
       width : {
         'logoSize' : '240px'
+      },
+      minHeight : {
+        'main-carousel-height' : '60vh'
       },
       top : {
         'nav-height' : '94px',

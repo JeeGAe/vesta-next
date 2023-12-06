@@ -43,12 +43,12 @@ export default function MainCarousel () {
 
 
   return (
-    <section>
+    <section className='min-h-main-carousel-height'>
       {/* 캐러셀 영역 */}
-      <article className="main-carousel-container w-full flex overflow-hidden" ref={mainCarouselRef}>
+      <article className="main-carousel-container w-full flex overflow-hidden h-full" ref={mainCarouselRef}>
         {imgs.map((img) => (
-           <div key={img.src} className="img-container w-full shrink-0" >
-            <img className="w-full" src={img.src} alt=""/>
+           <div key={img.src} className="img-container w-full shrink-0 h-full" >
+            <img className="w-full min-h-main-carousel-height" src={img.src} alt=""/>
            </div>
         ))}
       </article>

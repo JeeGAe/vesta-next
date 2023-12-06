@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from 'react';
 
 const contents = [
   {
@@ -22,19 +23,54 @@ const contents = [
 ];
 
 export default function ScrollEvent () { 
+  const [scrollIndex, setScrollIndex] = useState(0);
+
+  useEffect(() => {
+    const scrollBottom = () => {
+      const scrollHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+      );
+
+      console.log(window.scrollY, document.documentElement.clientHeight, scrollHeight)
+      if(window.scrollY + document.documentElement.clientHeight > scrollHeight - 10){
+        setScrollIndex(prev => prev + 1);
+      }
+    }
+
+    window.addEventListener('scroll', scrollBottom);
+
+    return () => {
+      window.removeEventListener('scroll', scrollBottom);
+    }
+  }, []);
+
   return (
-    <div className="scroll-contents-container">
+    <div className="scroll-contents-container w-11/12">
       {contents.map((c, index) => (
-        <div className="scroll-content ">
-          <div className="scroll-img-container scroll-move-down">
-            <img src={c.src1} alt=""/>
-            <img src={c.src2} alt=""/>
+        scrollIndex > index && (index % 2 === 0 ?
+        <div className="scroll-content w-full flex gap-6 mb-20 animate-scrollEventRight">
+          <div className="scroll-img-container scroll-move-down flex flex-col items-end gap-3 w-3/5">
+            <img className='rounded-xl w-4/5' src={c.src1} alt=""/>
+            <img className='rounded-xl w-3/5' src={c.src2} alt=""/>
           </div>
-          <div className="scroll-comments-container scroll-move-left">
-            <h3>{c.title}</h3>
-            <p>{c.description}</p>
+          <div className="scroll-comments-container scroll-move-left w-2/5">
+            <h3 className='text-7xl text-secondary-color'>{c.title}</h3>
+            <p className='text-5xl'>{c.description}</p>
           </div>
         </div>
+        :
+        <div className="scroll-content w-full flex gap-6 mb-20 animate-scrollEventRight">
+          <div className="scroll-comments-container scroll-move-left flex flex-col items-end gap-3 w-3/5">
+            <h3 className='text-7xl text-secondary-color'>{c.title}</h3>
+            <p className='text-5xl'>{c.description}</p>
+          </div>
+          <div className="scroll-img-container scroll-move-down">
+            <img className='rounded-xl' src={c.src1} alt=""/>
+            <img className='rounded-xl' src={c.src2} alt=""/>
+          </div>
+        </div>)
       ))}
     </div>
   )
