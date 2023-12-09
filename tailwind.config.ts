@@ -18,23 +18,32 @@ const config: Config = {
         'dropmenu-color' : 'rgba(51, 52, 54, .7)',
         'primary-color' : '#baa178',
         'secondary-color' : '#ba3734',
+        'font-color' : '#bebebc',
       },
       keyframes : {
         dropdown : {
-          '0%' : { opacity : 0},
-          '100%' : {opacity : 1}
+          '0%' : { opacity : '0'},
+          '100%' : {opacity : '1'}
         },
         scrollEventRight : {
-          '0%' : { opacity : 0, transform : 'translateY(-10rem)'},
-          '100%' : { opacity : 1, transform : 'translateY(0rem)'},
-        }
+          '0%' : { opacity : '0', transform : 'translateY(-10rem)'},
+          '100%' : { opacity : '1', transform : 'translateY(0rem)'},
+        },
+        arrowDown : {
+          '0%' : { opacity : '1'},
+          '100%' : { opacity : '0', transform : 'translateY(0.5rem)'},
+        },
       },
       animation : {
         dropdown : 'dropdown .5s ease-in-out',
-        scrollEventRight : 'scrollEventRight 1s ease-in-out'
+        scrollEventRight : 'scrollEventRight 1s ease-in-out',
+        arrowDown : 'arrowDown 1.5s ease-in-out infinite'
       },
       width : {
         'logoSize' : '240px'
+      },
+      height : {
+        basicHeight : 'calc(100vh - 160px - 94px)'
       },
       minHeight : {
         'main-carousel-height' : '60vh'

@@ -17,7 +17,7 @@ export default function Header () {
           height={0}
           />
         </div>
-        <ul className="main-nav-menu-container flex text-center cursor-pointer bg-background-color text-gray-400">
+        <ul className="main-nav-menu-container flex text-center cursor-pointer bg-background-color text-font-color">
           <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
             <a href="" className="nav-introduce w-full">INTRODUCE</a>
           </li>

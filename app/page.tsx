@@ -6,15 +6,17 @@ import ScrollEvent from "./components/ScrollEvent";
 export default function Home() {
   return (
     <main>
-      <div className="h-screen">
+      <div className="min-h-screen mb-52">
         <MainCarousel />
-        <section className="main-contents-container mt-8 flex w-11/12 justify-center">
-          <article className="news w-6/12">
-            <h2>공지사항</h2>
-            <ul>
-            </ul>
-          </article>
-          <EventCarousel />
+        <section className="main-contents-container pt-8 flex w-full justify-center">
+          <div className="flex w-11/12">
+            <article className="news w-6/12">
+              <h2>공지사항</h2>
+              <ul>
+              </ul>
+            </article>
+            <EventCarousel />
+          </div>
         </section>
       </div>
       <ScrollEvent />

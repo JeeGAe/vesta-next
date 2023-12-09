@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
+import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 
 const contents = [
   {
@@ -47,31 +48,44 @@ export default function ScrollEvent () {
   }, []);
 
   return (
-    <div className="scroll-contents-container w-11/12">
+    <>
+    {contents?.length > scrollIndex &&
+    <aside>
+      <div className="scroll-notice-container flex fixed bottom-0 right-2/4 translate-x-2/4 h-9 bg-dropmenu-color text-white rounded-t-lg items-center pr-1.5">
+        
+        <MdKeyboardDoubleArrowDown className='animate-arrowDown'/>
+        <p>
+          아래로 내려 베스타를 살펴보세요!  
+        </p>
+      </div>
+    </aside>
+    }
+    <div className="scroll-contents-container w-full">
       {contents.map((c, index) => (
         scrollIndex > index && (index % 2 === 0 ?
-        <div className="scroll-content w-full flex gap-6 mb-20 animate-scrollEventRight">
-          <div className="scroll-img-container scroll-move-down flex flex-col items-end gap-3 w-3/5">
+        <div className="scroll-content w-full flex gap-6 mb-20 animate-scrollEventRight justify-center">
+          <div className="scroll-img-container scroll-move-down flex flex-col items-end gap-3 w-7/12">
             <img className='rounded-xl w-4/5' src={c.src1} alt=""/>
             <img className='rounded-xl w-3/5' src={c.src2} alt=""/>
           </div>
-          <div className="scroll-comments-container scroll-move-left w-2/5">
+          <div className="scroll-comments-container scroll-move-left w-3/12">
             <h3 className='text-7xl text-secondary-color'>{c.title}</h3>
             <p className='text-5xl'>{c.description}</p>
           </div>
         </div>
         :
-        <div className="scroll-content w-full flex gap-6 mb-20 animate-scrollEventRight">
-          <div className="scroll-comments-container scroll-move-left flex flex-col items-end gap-3 w-3/5">
+        <div className="scroll-content w-full flex gap-6 mb-20 animate-scrollEventRight justify-center">
+          <div className="scroll-comments-container scroll-move-left w-3/12">
             <h3 className='text-7xl text-secondary-color'>{c.title}</h3>
             <p className='text-5xl'>{c.description}</p>
           </div>
-          <div className="scroll-img-container scroll-move-down">
-            <img className='rounded-xl' src={c.src1} alt=""/>
-            <img className='rounded-xl' src={c.src2} alt=""/>
+          <div className="scroll-img-container scroll-move-down flex flex-col items-start gap-3 w-7/12">
+            <img className='rounded-xl w-3/5' src={c.src1} alt=""/>
+            <img className='rounded-xl w-4/5' src={c.src2} alt=""/>
           </div>
         </div>)
       ))}
     </div>
+    </>
   )
 }
