@@ -2,42 +2,48 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Dropmenu from './Dropmenu';
+import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
-export default function Header () {
+export default function Header (props : any) {
   const [openDropmeun, setOpenDropmenu] = useState(false);
-
+  const { data : session } = useSession();
 
   return (
     <>
       <nav className="main-nav flex justify-between bg-background-color" onMouseEnter={() => setOpenDropmenu(true)}>
         <div className="main-nav-logo shrink-0 cursor-pointer">
-          <Image 
-          src="http://www.vestabuffet.com/common/img/logo.gif" alt="main-logo"
-          width={240}
-          height={0}
-          />
+          <Link href="/">
+            <Image 
+            src="http://www.vestabuffet.com/common/img/logo.gif" alt="main-logo"
+            width={240}
+            height={0}
+            />
+          </Link>
         </div>
         <ul className="main-nav-menu-container flex text-center cursor-pointer bg-background-color text-font-color">
           <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
-            <a href="" className="nav-introduce w-full">INTRODUCE</a>
+            <Link href="/" className="nav-introduce w-full">INTRODUCE</Link>
           </li>
           <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
-            <a href="" className="nav-facilty w-full">FACILTY</a>
+            <Link href="/" className="nav-facilty w-full">FACILTY</Link>
           </li>
           <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
-            <a href="" className="nav-foodmenu w-full">MENU</a>
+            <Link href="/" className="nav-foodmenu w-full">MENU</Link>
           </li>
           <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
-            <a href="" className="nav-banquet w-full">BANQUET</a>
+            <Link href="/" className="nav-banquet w-full">BANQUET</Link>
           </li>
           <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
-            <a href="" className="nav-event w-full">EVENT</a>
+            <Link href="/" className="nav-event w-full">EVENT</Link>
           </li>
           <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black">
-            <a href="" className="nav-customer w-full">CUSTOMER</a>
+            <Link href="/" className="nav-customer w-full">CUSTOMER</Link>
           </li>
           <li className="main-nav-menu w-24 border-l-2 border-slate-300 flex items-center hover:bg-black book-check">
-            <a href="" className="nav-book w-full">예약 및 조회</a>
+            {!session ? <Link href="/signin" className="nav-book w-full">예약 및 조회</Link> :
+              <Link href="/reserve" className="nav-book w-full">예약 및 조회</Link>
+            }
           </li>
           <li className="mini-dropbox">
             <div></div>
@@ -53,44 +59,44 @@ export default function Header () {
       }
       {/* <div className="side-dropmenu hidden">
         <ul>
-          <li className="book-check"><a href="">예약 및 조회</a></li>
+          <li className="book-check"><Link href="/">예약 및 조회</Link></li>
           <li className="login-user-name"></li>
           <li className="login-logout"></li>
         </ul>
         <ul>
-          <li><a href="">INTRODUCE</a></li>
-          <li><a href="">베스타소개</a></li>
-          <li><a href="">이용안내</a></li>
-          <li><a href="">오시는 길</a></li>
+          <li><Link href="/">INTRODUCE</Link></li>
+          <li><Link href="/">베스타소개</Link></li>
+          <li><Link href="/">이용안내</Link></li>
+          <li><Link href="/">오시는 길</Link></li>
         </ul>
         <ul>
-          <li><a href="">FACILTY</a></li>
-          <li><a href="">뷔페 전경사진</a></li>
-          <li><a href="">연회룸 소개</a></li>
-          <li><a href="">가족룸/놀이방 소개</a></li>
+          <li><Link href="/">FACILTY</Link></li>
+          <li><Link href="/">뷔페 전경사진</Link></li>
+          <li><Link href="/">연회룸 소개</Link></li>
+          <li><Link href="/">가족룸/놀이방 소개</Link></li>
         </ul>
         <ul>
-          <li><a href="">MENU</a></li>
-          <li><a href="">뷔페메뉴</a></li>
-          <li><a href="">Beverage</a></li>
-          <li><a href="">바리스타코너</a></li>
+          <li><Link href="/">MENU</Link></li>
+          <li><Link href="/">뷔페메뉴</Link></li>
+          <li><Link href="/">Beverage</Link></li>
+          <li><Link href="/">바리스타코너</Link></li>
         </ul>
         <ul>
-          <li><a href="">BANQUET</a></li>
-          <li><a href="">돌잔치 안내</a></li>
-          <li><a href="">고회/회갑연 안내</a></li>
-          <li><a href="">피로연 및 단체행사안내</a></li>
+          <li><Link href="/">BANQUET</Link></li>
+          <li><Link href="/">돌잔치 안내</Link></li>
+          <li><Link href="/">고회/회갑연 안내</Link></li>
+          <li><Link href="/">피로연 및 단체행사안내</Link></li>
         </ul>
         <ul>
-          <li><a href="">EVENT</a></li>
-          <li><a href="">이벤트</a></li>
-          <li><a href="./src/html/news.html">공지사항</a></li>
+          <li><Link href="/">EVENT</Link></li>
+          <li><Link href="/">이벤트</Link></li>
+          <li><a href="./src/html/news.html">공지사항</Link></li>
         </ul>
         <ul>
-          <li><a href="">CUSTOMER</a></li>
-          <li><a href="">고객의소리</a></li>
-          <li><a href="">FAQ</a></li>
-          <li><a href="">채용공고</a></li>
+          <li><Link href="/">CUSTOMER</Link></li>
+          <li><Link href="/">고객의소리</Link></li>
+          <li><Link href="/">FAQ</Link></li>
+          <li><Link href="/">채용공고</Link></li>
         </ul>
       </div> */}
     </>

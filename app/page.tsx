@@ -2,7 +2,6 @@ import MainCarousel from "./components/MainCarousel";
 import EventCarousel from "./components/EventCarousel";
 import ScrollEvent from "./components/ScrollEvent";
 
-
 export default function Home() {
   return (
     <main>

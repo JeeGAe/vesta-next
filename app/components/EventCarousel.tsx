@@ -2,7 +2,6 @@
 import { useState, useEffect, useRef } from 'react';
 
 const imgs = [
-  { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1699341000_11699341000.jpg?1701762841181" },
   { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1666232508_11666232508.jpg" },
   { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1652172608_11652172608.jpg" },
   { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1639207245_11639207245.jpg" },

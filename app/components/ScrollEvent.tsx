@@ -34,7 +34,6 @@ export default function ScrollEvent () {
         document.body.clientHeight, document.documentElement.clientHeight
       );
 
-      console.log(window.scrollY, document.documentElement.clientHeight, scrollHeight)
       if(window.scrollY + document.documentElement.clientHeight > scrollHeight - 10){
         setScrollIndex(prev => prev + 1);
       }
@@ -63,7 +62,7 @@ export default function ScrollEvent () {
     <div className="scroll-contents-container w-full">
       {contents.map((c, index) => (
         scrollIndex > index && (index % 2 === 0 ?
-        <div className="scroll-content w-full flex gap-6 mb-20 animate-scrollEventRight justify-center">
+        <div key={c.title} className="scroll-content w-full flex gap-6 mb-20 animate-scrollEventRight justify-center">
           <div className="scroll-img-container scroll-move-down flex flex-col items-end gap-3 w-7/12">
             <img className='rounded-xl w-4/5' src={c.src1} alt=""/>
             <img className='rounded-xl w-3/5' src={c.src2} alt=""/>
@@ -74,7 +73,7 @@ export default function ScrollEvent () {
           </div>
         </div>
         :
-        <div className="scroll-content w-full flex gap-6 mb-20 animate-scrollEventRight justify-center">
+        <div key={c.title} className="scroll-content w-full flex gap-6 mb-20 animate-scrollEventRight justify-center">
           <div className="scroll-comments-container scroll-move-left w-3/12">
             <h3 className='text-7xl text-secondary-color'>{c.title}</h3>
             <p className='text-5xl'>{c.description}</p>
