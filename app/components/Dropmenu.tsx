@@ -34,7 +34,7 @@ export default function Dropmenu ( props : any ) {
         </ul>
         <ul className="drop-nav-menu w-24 border-l-2 border-slate-300 py-3 hover:bg-background-color">
           <li className="py-2"><Link href="/" className="hover:text-primary-color">이벤트</Link></li>
-          <li className="py-2"><Link href="/news" className="hover:text-primary-color">공지사항</Link></li>
+          <li className="py-2"><Link href="/notice" className="hover:text-primary-color" prefetch={false}>공지사항</Link></li>
         </ul>
         <ul className="drop-nav-menu w-24 border-l-2 border-slate-300 py-3 hover:bg-background-color">
           <li className="py-2"><Link href="/" className="hover:text-primary-color">고객의소리</Link></li>

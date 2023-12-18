@@ -1,3 +1,4 @@
+// mongoose 를 사용하기로 함
 // import { MongoClient } from 'mongodb'
 
 // const DB_USER = process.env.DB_USER;
@@ -21,6 +22,7 @@
 // export { connectDB }
 
 import mongoose from 'mongoose';
+import NoticeCounter from '@/models/noticeCounter';
 
 export async function connectMongoDB () {
   const MONGODB_URI = process.env.MONGODB_URI;
@@ -38,5 +40,23 @@ export async function connectMongoDB () {
     }
   } catch (error) {
     console.log('Failed connecting mongoDB : ', error);
+  }
+}
+
+export async function increseNoticeCounter() {
+  try {
+    
+    let counter = await NoticeCounter.findOne({});
+    if(!counter){
+      const newCounter = await NoticeCounter.create({});
+      counter = await NoticeCounter.findOne({});
+    }
+    const currentCount = counter.counter;
+    counter.counter++;
+    await counter.save();
+
+    return currentCount;
+  } catch (error) {
+    console.log("increseNoticeCounter error : ", error)
   }
 }

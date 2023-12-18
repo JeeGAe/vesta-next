@@ -1,4 +1,3 @@
-// const mongoose = require('mongoose');
 import mongoose, { models } from 'mongoose';
 
 const userSchema = new mongoose.Schema({
@@ -6,14 +5,17 @@ const userSchema = new mongoose.Schema({
     type : String,
     require : true,
     unique : true,
+    trim : true,
   },
   password : {
     type : String,
     require : true,
+    trim : true,
   },
   name : {
     type : String,
     require : true,
+    trim : true,
   },
   isAdmin : {
     type : Boolean,

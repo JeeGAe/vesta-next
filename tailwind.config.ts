@@ -19,6 +19,8 @@ const config: Config = {
         'primary-color' : '#baa178',
         'secondary-color' : '#ba3734',
         'font-color' : '#bebebc',
+        'possible' : 'rgb(171, 255, 45)',
+        'impossible' : 'red',
       },
       keyframes : {
         dropdown : {
@@ -43,10 +45,18 @@ const config: Config = {
         'logoSize' : '240px'
       },
       height : {
-        basicHeight : 'calc(100vh - 160px - 94px)'
+        'basicHeight' : 'calc(100vh - 160px - 94px)',
+        'date' : '60px',
+      },
+      minWidth : {
+        'select-calendar' : '110px',
+        'date' : '60px',
       },
       minHeight : {
-        'main-carousel-height' : '60vh'
+        'main-carousel-height' : '60vh',
+        'notice-container' : '500px',
+        'calendar' : '400px',
+        'date' : '60px',
       },
       top : {
         'nav-height' : '94px',

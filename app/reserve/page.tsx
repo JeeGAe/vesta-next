@@ -1,5 +1,9 @@
+import Reserve from "./components/Reserve";
+
 export default function Page () {
   return (
-    <>예약페이지</>
+    <div className="h-basicHeight">
+      <Reserve />
+    </div>
   )
 }

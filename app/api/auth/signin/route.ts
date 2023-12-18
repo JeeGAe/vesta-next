@@ -1,3 +1,4 @@
+// Next-Auth를 사용하므로 필요 없어짐
 // import { NextResponse } from "next/server";
 // // import { connectDB } from "@/utils/mongoDB";
 // import { generateToken } from '@/utils/jwt';

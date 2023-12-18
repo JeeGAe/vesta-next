@@ -35,6 +35,7 @@ export const authOptions : any = {
   callbacks : {
     async jwt({ token, user } : { token: JWT; user?: any }) : Promise<JWT> {
       if(token && user){
+        token._id = user._id;
         token.name = user.name;
         token.userId = user.userId;
         token.isAdmin = user.isAdmin;
@@ -43,9 +44,10 @@ export const authOptions : any = {
     },
     async session({session, token} : { session : Session; token?: JWT }) : Promise<Session> {
       const user = {
-        name : token?.name,
-        userId : token?.userId,
-        isAdmin : token?.isAdmin,
+        _id : token?._id || '',
+        name : token?.name || '',
+        userId : token?.userId || '',
+        isAdmin : token?.isAdmin || false,
       }
       session.user = user;
       return Promise.resolve(session);
