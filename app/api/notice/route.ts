@@ -13,7 +13,7 @@ export async function POST (req : Request) {
       index : currentCount,
       title : data.title,
       description : data.description,
-      author : new ObjectId(data._id)
+      author : new ObjectId(data.author)
     }
     const insertNotice = await Notice.create(newNotice);
 
@@ -26,9 +26,8 @@ export async function POST (req : Request) {
 
 export async function GET (req : Request) {
   try {
-    console.log('올때마다 하나?');
     await connectMongoDB();
-    const getNotice = await Notice.find({}).sort({index: -1});
+    const getNotice = await Notice.find({}).sort({index: -1}).populate('author','name');
 
     return NextResponse.json({ code : 200, getNotice });
   } catch (error) {

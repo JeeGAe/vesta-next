@@ -32,7 +32,7 @@ export default function NoticeList (props : any) {
                 <ul  className="flex py-1.5">
                   <li className="w-1/12 text-center text-primary-color">{n.index}</li>
                   <li className="w-7/12 pl-5 text-primary-color"><Link href={`/notice/read/${n.index}`}>{n.title}</Link></li>
-                  <li className="w-2/12 text-center text-primary-color">글쓴이</li>
+                  <li className="w-2/12 text-center text-primary-color">{n?.author?.name}</li>
                   <li className="w-2/12 text-center text-primary-color">{n.views}</li>
                 </ul>
               }

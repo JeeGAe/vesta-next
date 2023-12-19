@@ -7,20 +7,22 @@ import { useSession } from "next-auth/react";
 
 const banquet = ["오리온", "피닉스", "아르고"];
 
-export default function Reserve () {
+export default function Reserve (props:any) {
   const { data : session } = useSession();
   const [year, setYear] = useState(new Date().getFullYear());
   const [month, setMonth] = useState(new Date().getMonth() + 1);
   const [date, setDate] = useState(0);
   const [selectBanquet, setSelectBanquet] = useState('');
   const [selectTime, setSelectTime] = useState('');
+  const [reservedTime, setReservedTime] = useState<string[]>([]);
 
   const prevMonth = () => {
     setDate(0);
-    setMonth(prev => prev <= 1 ? 11 : prev - 1);
+    setMonth(prev => prev <= 1 ? 12 : prev - 1);
     if(month <= 1){
       setYear(year - 1);
     }
+    setReservedTime([]);
   }
 
   const nextMonth = () => {
@@ -29,9 +31,20 @@ export default function Reserve () {
     if(month >= 12){
       setYear(prev => prev + 1);
     }
+    setReservedTime([]);
   }
 
-  const selectDate = (d:number) => {
+  const selectDate = (d:number, reserved:any[]) => {
+    if(selectBanquet === ''){
+      alert("연회장을 먼저 선택해주세요!");
+      return ;
+    }
+    if(reserved?.length !== 0){
+      const getReservedTime = reserved.map(r => r.time);
+      setReservedTime([...getReservedTime]);
+    } else {
+      setReservedTime([]);
+    }
     if(d > 0)
     setDate(d);
     setSelectTime('');
@@ -41,6 +54,7 @@ export default function Reserve () {
     setSelectBanquet(b);
     setDate(0);
     setSelectTime('');
+    setReservedTime([]);
   }
 
   const handleSelectTime = (t:string) => {
@@ -49,6 +63,7 @@ export default function Reserve () {
 
   const handleSubmit = async () => {
     if(year && month && date && selectBanquet && selectTime && session){
+      const newDate = new Date(year, month - 1, date, 0, 0, 0);
       const fetchData = await fetch('http://localhost:3000/api/reserve', {
         method : 'POST',
         headers : {
@@ -56,7 +71,7 @@ export default function Reserve () {
         },
         cache : 'no-store',
         body : JSON.stringify({
-          date : new Date(year, month - 1, date, 0, 0, 0),
+          date : newDate,
           banquet : selectBanquet,
           time : selectTime,
           _id : session?.user?._id
@@ -64,6 +79,14 @@ export default function Reserve () {
       })
     }
   }
+
+  const timeColorSelector = (t:string) => {
+    if(reservedTime.indexOf(t) !== -1) return "bg-impossible";
+    if(selectTime === t) return "bg-secondary-color";
+    return "bg-possible";
+  }
+
+  console.log(reservedTime)
 
   return (
     <div className="h-full flex items-center justify-center gap-5">
@@ -78,15 +101,15 @@ export default function Reserve () {
           <span className="text-2xl min-w-select-calendar text-center">{`${year} - ${month}`}</span>
           <button className="next-month" onClick={nextMonth}><TiChevronRight size={32}/></button>
         </div>
-        <Calendar year={year} month={month} date={date} selectDate={selectDate}/>
+        <Calendar year={year} month={month} date={date} selectDate={selectDate} reservations={props.reservations} selectBanquet={selectBanquet}/>
       </div>
       {date > 0 &&
         <div className="w-40 shrink-0 flex flex-col gap-6">
           <div className="am-pm-container flex justify-around">
-            <button className={`bg-possible py-1 px-2 rounded-md text-primary-color font-bold ${selectTime === 'am' && 'bg-secondary-color'}`} id="am-btn" onClick={() => handleSelectTime('am')}>오전</button>
-            <button className={`bg-possible py-1 px-2 rounded-md text-primary-color font-bold ${selectTime === 'pm' && 'bg-secondary-color'}`} id="pm-btn" onClick={() => handleSelectTime('pm')}>오후</button>
+            <button className={`py-1 px-2 rounded-md text-primary-color font-bold ${timeColorSelector("am")}`} id="am-btn" onClick={() => handleSelectTime('am')} disabled={reservedTime.indexOf("am") !== -1}>오전</button>
+            <button className={`py-1 px-2 rounded-md text-primary-color font-bold ${timeColorSelector("pm")}`} id="pm-btn" onClick={() => handleSelectTime('pm')} disabled={reservedTime.indexOf("pm") !== -1}>오후</button>
           </div>
-          <button className={`bg-font-color py-1 px-2 rounded-md text-primary-color font-bold ${'bg-secondary-color'}`} id="book-btn" onClick={handleSubmit}>예약하기</button>
+          <button className={`py-1 px-2 rounded-md text-primary-color font-bold ${(selectBanquet && year && month && date && selectTime) ? 'bg-secondary-color' : 'bg-font-color'}`} id="book-btn" disabled={(selectBanquet && year && month && date && selectTime) ? false : true} onClick={handleSubmit}>예약하기</button>
           <div>
             <div className="possible-box w-3 h-3 bg-possible"></div><p>예약가능</p>
           </div>
