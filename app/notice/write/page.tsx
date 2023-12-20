@@ -48,6 +48,7 @@ export default function Page () {
         const data = await submit.json();
   
         if(data.code === 200){
+          await router.refresh();
           router.replace(`/notice/read/${data.index}`);
         } else {
           alert('글 작성에 실패하였습니다!');

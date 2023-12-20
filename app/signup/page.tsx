@@ -1,5 +1,3 @@
-'use client'
-
 import SignupForm from "./components/SignupForm"
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";

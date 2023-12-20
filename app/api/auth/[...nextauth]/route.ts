@@ -42,7 +42,7 @@ export const authOptions : any = {
       }
       return token;
     },
-    async session({session, token} : { session : Session; token?: JWT }) : Promise<Session> {
+    async session({session, token} : { session : Session | any; token?: JWT }) : Promise<Session> {
       const user = {
         _id : token?._id || '',
         name : token?.name || '',

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Calendar from "./Calendar";
 import { TiChevronLeft, TiChevronRight } from "react-icons/ti";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const banquet = ["오리온", "피닉스", "아르고"];
 
@@ -15,6 +16,7 @@ export default function Reserve (props:any) {
   const [selectBanquet, setSelectBanquet] = useState('');
   const [selectTime, setSelectTime] = useState('');
   const [reservedTime, setReservedTime] = useState<string[]>([]);
+  const router = useRouter();
 
   const prevMonth = () => {
     setDate(0);
@@ -76,7 +78,12 @@ export default function Reserve (props:any) {
           time : selectTime,
           _id : session?.user?._id
         })
-      })
+      });
+      const data = await fetchData.json();
+      if(data.code === 200){
+        alert("예약 되었습니다!");
+        router.refresh();
+      }
     }
   }
 

@@ -8,7 +8,7 @@ export default function NoticeDetail (props:any) {
         <ul className="flex border-b border-font-color py-2">
           <li className="w-1/12 text-center text-primary-color">{notice.index}</li>
           <li className="w-7/12 text-center text-primary-color">{notice.title}</li>
-          <li className="w-2/12 text-center text-primary-color">글쓴이</li>
+          <li className="w-2/12 text-center text-primary-color">{notice?.author?.name}</li>
           <li className="w-2/12 text-center text-primary-color">{notice.views}</li>
         </ul>
       </div>

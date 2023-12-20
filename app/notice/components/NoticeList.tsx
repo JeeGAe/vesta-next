@@ -47,7 +47,9 @@ export default function NoticeList (props : any) {
           ))}
         </ul>
         <div className="flex justify-end pr-5 py-1">
-          <Link className="bg-secondary-color py-1 px-2 rounded-md text-primary-color font-bold" href='/notice/write'>글쓰기</Link>
+          {session?.user?.isAdmin &&
+            <Link className="bg-secondary-color py-1 px-2 rounded-md text-primary-color font-bold" href='/notice/write' prefetch={false}>글쓰기</Link>
+          }
         </div>
       </div>
     </div>

@@ -45,7 +45,8 @@ export default function Dropmenu ( props : any ) {
           {session &&
             <>
               <li className="login-user-name py-2">{session.user?.name} 님</li>
-              <li className="py-2"><Link href="/" 
+              {session?.user?.isAdmin && <li><Link href={'/admin'} className="hover:text-primary-color">관리자</Link></li>}
+              <li className="py-2 "><Link href="/" 
               onClick={(e) => { 
                 e.preventDefault();
                 signOut();}} 

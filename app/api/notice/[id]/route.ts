@@ -8,7 +8,7 @@ export async function GET (req : NextRequest, { params }: { params: { id: string
   try {
     const index = params.id;
     await connectMongoDB();
-    const getNotice = await Notice.findOne({ index : index });
+    const getNotice = await Notice.findOne({ index : index }).populate('author','name');
     getNotice.views++;
     await getNotice.save();
     return NextResponse.json({ code : 200, getNotice });
