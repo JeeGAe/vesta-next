@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 const imgs = [
   { src : "http://www.vestabuffet.com/main/1.jpg"},
@@ -48,7 +49,8 @@ export default function MainCarousel () {
       <article className="main-carousel-container w-full flex overflow-hidden h-full" ref={mainCarouselRef}>
         {imgs.map((img) => (
            <div key={img.src} className="img-container w-full shrink-0 h-full" >
-            <img className="w-full min-h-main-carousel-height" src={img.src} alt=""/>
+            <Image src={img.src} alt='main-crousel-img' width={500} height={500} fill/>
+            {/* <img className="w-full min-h-main-carousel-height" src={img.src} alt=""/> */}
            </div>
         ))}
       </article>
