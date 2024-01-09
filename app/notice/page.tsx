@@ -1,9 +1,11 @@
+import { connectMongoDB } from "@/utils/mongoDB";
 import NoticeList from "./components/NoticeList";
+import Notice from "@/models/notice";
 
 const getNotice = async () => {
   console.log('getNotice!')
   try {
-    const getNotice = await fetch('http://localhost:3000/api/notice',{
+    const getNotice = await fetch('https://vesta-next-git-dev-jeegaes-projects.vercel.app//api/notice',{
       method : 'GET',
       headers : {
         'Content-Type' : 'application/json'
@@ -26,8 +28,9 @@ const getNotice = async () => {
 export default async function Page (props : any) {
   const notices = await getNotice();
 
-  console.log("notice page");
+
   
+  console.log("notice page : ", notices);
   return (
       <div className="news-list-container flex flex-col h-basicHeight">
         <NoticeList notices={notices} />
