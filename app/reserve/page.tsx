@@ -7,7 +7,7 @@ import Resevation from "@/models/reservation";
 
 const getReservation = async () => {
   try {
-    const fecthReservation = await fetch('https://vesta-next-git-dev-jeegaes-projects.vercel.app/api/reserve', {
+    const fecthReservation = await fetch('https://vesta-next.vercel.app/api/reserve', {
       method : 'GET',
       headers : {
         'Content-Type' : 'application/json',
