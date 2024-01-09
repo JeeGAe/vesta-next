@@ -48,7 +48,7 @@ export default function SignupForm () {
     if(userInfo.userId.trim() !== '' &&
     userInfo.password.trim() !== '' &&
     userInfo.userName.trim() !== ''){
-      fetch('http://localhost:3000/api/auth/signup',{
+      fetch('http://localhost:3000/api/signup',{
         method : 'POST',
         headers : {
           'Content-Type' : 'application/json'

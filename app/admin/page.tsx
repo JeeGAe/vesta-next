@@ -1,7 +1,7 @@
 import Dashboard from "./components/Dashboard";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { authOptions } from "../api/auth/options";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 
 export default async function Page () {
@@ -14,4 +14,3 @@ export default async function Page () {
     </div>
   )
 }
-export const dynamic = 'force-dynamic'

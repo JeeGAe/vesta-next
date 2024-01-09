@@ -28,6 +28,7 @@ export async function POST (req : NextRequest) {
 
 export async function GET(req : NextRequest) {
   try {
+    console.log('get입니다!')
     await connectMongoDB();
     const reservations = await Resevation.find({});
     return NextResponse.json({ code : 200, msg : "success get reservation!", reservations });

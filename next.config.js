@@ -17,13 +17,6 @@ const nextConfig = {
       },
     ],
   },
-}
-
-
-// module.exports = nextConfig
-
-module.exports = {
-  nextConfig,
   async headers() {
     return [
       {
@@ -38,4 +31,7 @@ module.exports = {
       }
     ]
   }
-};
+}
+
+
+module.exports = nextConfig

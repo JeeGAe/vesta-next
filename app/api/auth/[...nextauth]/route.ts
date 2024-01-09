@@ -55,8 +55,11 @@ export const authOptions : NextAuthOptions = {
     }
   },
   secret : process.env.JWT_SECRET,
-  pages : {
-    signIn : "/signin"
-  }
+  // pages : {
+  //   signIn : "/signin"
+  // }
 }
 
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
