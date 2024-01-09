@@ -73,6 +73,8 @@ export default function MonthChart () {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
+
     plugins: {
       legend: {
         position: 'top' as const,
@@ -86,7 +88,7 @@ export default function MonthChart () {
 
   if(chartData?.length !== 0){
     return(
-      <>
+      <div className='h-full'>
         <div className="chage-month flex justify-center h-8 gap-5">
           <button className="prev-month" onClick={prevMonth}><TiChevronLeft className="" size={20}/></button>
           <span className="text-2xl min-w-select-calendar text-center">{`${selectYear}년`}</span>
@@ -97,7 +99,7 @@ export default function MonthChart () {
           labels : labels,
           datasets : chartData}}/>
         </div>
-      </>
+      </div>
       
     )
   }
