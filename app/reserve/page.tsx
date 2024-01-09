@@ -34,7 +34,7 @@ export default async function Page () {
 
   return (
     <div className="h-basicHeight">
-      <Reserve />
+      <Reserve reservations={reservations}/>
     </div>
   )
     
