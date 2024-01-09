@@ -11,6 +11,8 @@ export default function NoticeList (props : any) {
   const calculateTotalPage = Math.ceil(notices?.length / 10);
   const pagenationArray = new Array(calculateTotalPage).fill(0).map((_:any, index:number) => index + 1);
 
+  console.log(notices)
+
   return (
     <div className="w-full bg-background-color h-4/5 border-y-8  border-secondary-color mt-10 flex flex-col min-h-notice-container">
       <div>

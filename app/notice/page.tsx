@@ -1,7 +1,5 @@
 import NoticeList from "./components/NoticeList";
 
-export const dynamic = "force-dynamic";
-
 const getNotice = async () => {
   console.log('getNotice!')
   try {
