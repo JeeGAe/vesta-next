@@ -7,7 +7,7 @@ import type { Session } from "next-auth";
 import { NextAuthOptions } from "next-auth";
 import { authOptions } from "./options";
 
-// const authOptions : NextAuthOptions = {
+//export const authOptions : NextAuthOptions = {
 //   providers : [
 //     CredentialsProvider({
 //       name : "credentials",
