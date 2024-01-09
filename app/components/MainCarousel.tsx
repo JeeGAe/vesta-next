@@ -48,7 +48,7 @@ export default function MainCarousel () {
       {/* 캐러셀 영역 */}
       <article className="main-carousel-container w-full flex overflow-hidden h-full" ref={mainCarouselRef}>
         {imgs.map((img) => (
-           <div key={img.src} className="img-container w-full shrink-0 h-full" >
+           <div key={img.src} className="img-container w-full shrink-0 h-full relative" >
             <Image src={img.src} alt='main-crousel-img' width={500} height={500} fill/>
             {/* <img className="w-full min-h-main-carousel-height" src={img.src} alt=""/> */}
            </div>
