@@ -1,7 +1,7 @@
 import Dashboard from "./components/Dashboard";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { authOptions } from "../api/auth/[...nextauth]/options";
+import { authOptions } from "../api/auth/options";
 
 
 export default async function Page () {
