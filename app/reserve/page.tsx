@@ -3,8 +3,6 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "../api/auth/[...nextauth]/options";
 
-export const dynamic = 'force-dynamic'
-
 const getReservation = async () => {
   try {
     const fecthReservation = await fetch('http://localhost:3000/api/reserve', {
@@ -38,3 +36,5 @@ export default async function Page () {
   )
     
 }
+
+export const dynamic = 'force-dynamic'

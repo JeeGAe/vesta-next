@@ -1,7 +1,5 @@
 import NoticeList from "./components/NoticeList";
 
-export const dynamic = 'force-dynamic'
-
 const getNotice = async () => {
   console.log('getNotice!')
   try {
@@ -36,3 +34,5 @@ export default async function Page (props : any) {
       </div>
   )
 }
+
+export const dynamic = 'force-dynamic'
