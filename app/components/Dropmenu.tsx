@@ -9,7 +9,7 @@ export default function Dropmenu ( props : any ) {
   console.log(session)
   
   return (
-    <div className="dropmenu animate-dropdown w-full flex justify-between bg-dropmenu-color  absolute top-nav-height" onMouseLeave={() => props.setOpenDropmenu(false)}>
+    <div className="dropmenu animate-dropdown w-full flex justify-between bg-dropmenu-color  absolute top-nav-height z-50" onMouseLeave={() => props.setOpenDropmenu(false)}>
       <div className="w-logoSize shrink-0"></div>
       <ul className="flex text-gray-200 text-center">
         <ul className="drop-nav-menu w-24 border-l-2 border-slate-300 py-3 hover:bg-background-color">
