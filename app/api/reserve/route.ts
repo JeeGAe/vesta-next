@@ -37,3 +37,5 @@ export async function GET(req : NextRequest) {
     return NextResponse.json({ code : 500, msg : "Get reservation error!"});
   }
 }
+
+export const dynamic = 'force-dynamic'

@@ -35,3 +35,5 @@ export async function GET (req : Request) {
     return NextResponse.json({ code : 500, msg : "get notice error" });
   }
 }
+
+export const dynamic = 'force-dynamic'
