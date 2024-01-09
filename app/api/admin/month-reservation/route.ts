@@ -24,3 +24,5 @@ export async function GET (req : NextRequest) {
   }
   
 }
+
+export const dynamic = 'force-dynamic'
