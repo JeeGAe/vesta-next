@@ -4,20 +4,25 @@ export const dynamic = "force-dynamic";
 
 const getNotice = async () => {
   console.log('getNotice!')
-  const getNotice = await fetch('http://localhost:3000/api/notice',{
-    method : 'GET',
-    headers : {
-      'Content-Type' : 'application/json'
-    },
-    // cache : 'no-store',
-    next : { revalidate : 0 },
-  });
-  const data = await getNotice.json();
-  let notices = [];
-  if(data.code === 200){
-    notices = data.getNotice;
-    return notices;
+  try {
+    const getNotice = await fetch('http://localhost:3000/api/notice',{
+      method : 'GET',
+      headers : {
+        'Content-Type' : 'application/json'
+      },
+      // cache : 'no-store',
+      next : { revalidate : 0 },
+    });
+    const data = await getNotice.json();
+    let notices = [];
+    if(data.code === 200){
+      notices = data.getNotice;
+      return notices;
+    }
+  } catch (error) {
+    console.log('get notice error : ', error)
   }
+  
 }
 
 export default async function Page (props : any) {
