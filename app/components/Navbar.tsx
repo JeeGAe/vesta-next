@@ -17,7 +17,7 @@ export default function Header (props : any) {
             <Image 
             src="http://www.vestabuffet.com/common/img/logo.gif" alt="main-logo"
             width={240}
-            height={0}
+            height={94}
             />
           </Link>
         </div>

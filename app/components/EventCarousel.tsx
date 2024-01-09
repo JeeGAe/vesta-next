@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 const imgs = [
   { src : "http://www.vestabuffet.com/upData/bbs2/bbs2_1666232508_11666232508.jpg" },
@@ -46,8 +47,11 @@ export default function EventCarousel () {
     <article className="event-carousel-container w-6/12">
       <div className="event-carousel flex overflow-hidden w-full" ref={mainCarouselRef}>
         {imgs.map((img) => (
-          <div key={img.src} className="img-container w-full shrink-0">
-            <img  className="w-full" src={img.src} alt=""/>
+          <div key={img.src} className="img-container w-full h-full shrink-0">
+            <Image src={img.src} alt="event-carousel-img" width={0} height={0} sizes='100vw' style={{
+          width: '100%', height: "100%" 
+        }} />
+            {/* <img  className="w-full" src={img.src} alt=""/> */}
           </div>
         ))}
       </div>

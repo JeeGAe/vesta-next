@@ -15,6 +15,30 @@ const nextConfig = {
         port: '',
         pathname: '/main/*',
       },
+      {
+        protocol: 'http',
+        hostname: 'www.vestabuffet.com',
+        port: '',
+        pathname: '/upData/bbs2/*',
+      },
+      {
+        protocol: 'http',
+        hostname: 'www.vestabuffet.com',
+        port: '',
+        pathname: '/sub3/img/*',
+      },
+      {
+        protocol: 'http',
+        hostname: 'www.vestabuffet.com',
+        port: '',
+        pathname: '/sub2/img/room1/*',
+      },
+      {
+        protocol: 'http',
+        hostname: 'www.vestabuffet.com',
+        port: '',
+        pathname: '/sub2/img/gallery1/*',
+      },
     ],
   },
   async headers() {

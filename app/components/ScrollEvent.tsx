@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
+import Image from 'next/image';
 
 const contents = [
   {
@@ -63,9 +64,11 @@ export default function ScrollEvent () {
       {contents.map((c, index) => (
         scrollIndex > index && (index % 2 === 0 ?
         <div key={c.title} className="scroll-content w-full flex gap-6 mb-20 animate-scrollEventRight justify-center">
-          <div className="scroll-img-container scroll-move-down flex flex-col items-end gap-3 w-7/12">
-            <img className='rounded-xl w-4/5' src={c.src1} alt=""/>
-            <img className='rounded-xl w-3/5' src={c.src2} alt=""/>
+          <div className="scroll-img-container scroll-move-down flex flex-col items-end gap-3 w-7/12 relative">
+            <Image src={c.src1} alt="scroll-event-img" width={0} height={0} sizes='100vw' style={{ width : '80%'}} />
+            <Image src={c.src2} alt="scroll-event-img" width={0} height={0} sizes='100vw' style={{ width : '60%'}} />
+            {/* <img className='rounded-xl w-4/5' src={c.src1} alt=""/>
+            <img className='rounded-xl w-3/5' src={c.src2} alt=""/> */}
           </div>
           <div className="scroll-comments-container scroll-move-left w-3/12">
             <h3 className='text-7xl text-secondary-color'>{c.title}</h3>
@@ -78,9 +81,11 @@ export default function ScrollEvent () {
             <h3 className='text-7xl text-secondary-color'>{c.title}</h3>
             <p className='text-5xl'>{c.description}</p>
           </div>
-          <div className="scroll-img-container scroll-move-down flex flex-col items-start gap-3 w-7/12">
-            <img className='rounded-xl w-3/5' src={c.src1} alt=""/>
-            <img className='rounded-xl w-4/5' src={c.src2} alt=""/>
+          <div className="scroll-img-container scroll-move-down flex flex-col items-start gap-3 w-7/12 relative">
+            <Image src={c.src1} alt="scroll-event-img" width={0} height={0} sizes='100vw' style={{ width : '80%'}} />
+            <Image src={c.src2} alt="scroll-event-img" width={0} height={0} sizes='100vw' style={{ width : '60%'}} />
+            {/* <img className='rounded-xl w-3/5' src={c.src1} alt=""/>
+            <img className='rounded-xl w-4/5' src={c.src2} alt=""/> */}
           </div>
         </div>)
       ))}

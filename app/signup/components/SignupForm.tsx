@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
+import Image from "next/image";
 
 type signup = {
   userId : string,
@@ -71,7 +72,8 @@ export default function SignupForm () {
     <div className="register-container h-basicHeight flex justify-center items-center">
       <div className="w-96 flex bg-background-color flex-col rounded-xl items-center h-3/5 gap-5 shadow-2xl">
         <div>
-          <img src="http://www.vestabuffet.com/common/img/logo.gif" alt="main-logo"/>
+          <Image src="http://www.vestabuffet.com/common/img/logo.gif" alt="main-logo" width={240} height={94}/>
+          {/* <img src="http://www.vestabuffet.com/common/img/logo.gif" alt="main-logo"/> */}
         </div>
         <form onSubmit={onSubmitHandler}>
           <ul className="flex flex-col gap-7">
