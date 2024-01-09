@@ -25,6 +25,8 @@ const getNotice = async () => {
 
 export default async function Page (props : any) {
   const notices = await getNotice();
+
+  console.log("notice page");
   
   return (
       <div className="news-list-container flex flex-col h-basicHeight">

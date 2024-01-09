@@ -15,7 +15,7 @@ const getReservation = async () => {
 
     const res = await fecthReservation.json();
     const reservations = await res.reservations;
-    console.log(reservations)
+    console.log("예약리스트",reservations)
     return reservations;
   } catch (error) {
     console.log("get reservation error : ", error);
