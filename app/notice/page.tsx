@@ -5,7 +5,7 @@ import Notice from "@/models/notice";
 const getNotice = async () => {
   console.log('getNotice!')
   try {
-    const getNotice = await fetch('https://vesta-next-git-dev-jeegaes-projects.vercel.app//api/notice',{
+    const getNotice = await fetch('https://vesta-next-git-dev-jeegaes-projects.vercel.app/api/notice',{
       method : 'GET',
       headers : {
         'Content-Type' : 'application/json'
