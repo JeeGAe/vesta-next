@@ -4,6 +4,8 @@ import './globals.css'
 
 import AuthSession from "@/app/AuthSession";
 import Navbar from './components/Navbar';
+// vercel에서 지원하는 사이트 분석 라이브러리
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -42,6 +44,7 @@ export default async function RootLayout({
             <p className='text-center pt-5'>COPYRIGHT(C) PREMIUM PUFFET. ALL RIGHTS RESERVED.</p>
           </footer>
         </AuthSession>
+        <Analytics />
       </body>
     </html>
   )
