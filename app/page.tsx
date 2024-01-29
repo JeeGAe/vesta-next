@@ -28,7 +28,7 @@ export default async function Home() {
               <h2>공지사항</h2>
               <ul>
                 {
-                latestNotices.map((n:any) => 
+                latestNotices?.map((n:any) => 
                   (<li key={n.index}><Link href={`/notice/read/${n.index}`}>{n.title}</Link></li>))
                 }
               </ul>
