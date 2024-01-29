@@ -1,7 +1,7 @@
 import NoticeDetail from "./components/NoticeDetail";
 
 export default async function Page (props:any) {
-  const fetchNotice = await fetch(`http://localhost:3000/api/notice/${props.params.id}`,{
+  const fetchNotice = await fetch(`https://vesta-next.vercel.app/api/notice/${props.params.id}`,{
     method : 'GET',
     headers : {
       'Content-Type' : 'application/json'
